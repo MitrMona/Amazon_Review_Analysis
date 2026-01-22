@@ -1,130 +1,111 @@
+# 📊 Amazon Product Reviews – Sentiment & Topic Analysis
 
+## 📌 Project Overview
+Amazon receives a massive volume of customer reviews across its products.  
+Manually analyzing this feedback is not scalable.
 
-📊 Amazon Product Reviews – Sentiment & Topic Analysis
-🔍 Project Overview
+This project applies **Natural Language Processing (NLP)** and **sentiment analysis** techniques to classify Amazon product reviews into **positive, neutral, and negative sentiments**, and to uncover the **key topics and drivers** behind customer opinions.
 
-Amazon receives millions of customer reviews across products. Manually analyzing this feedback is impractical.
-This project applies Natural Language Processing (NLP) and sentiment analysis to automatically classify customer reviews into positive, neutral, and negative sentiments, and extract dominant discussion topics.
+---
 
-🎯 Business Objective
+## 🎯 Business Objective
+- Automatically analyze customer sentiment from text reviews  
+- Identify common themes in positive, neutral, and negative feedback  
+- Generate actionable insights to support **product improvement, pricing strategy, and customer experience**
 
-Identify customer sentiment from textual reviews
+---
 
-Understand key themes driving satisfaction and dissatisfaction
+## 📁 Dataset
+- Amazon Product Reviews dataset  
+- Primary column used: `reviews.text`  
+- Missing values were removed before analysis  
 
-Provide actionable insights to improve products and customer experience
+---
 
-📁 Dataset
+## 🧹 Text Preprocessing
+- Lowercased text  
+- Removed URLs, mentions, and punctuation  
+- Tokenized text using **NLTK**  
+- Removed stopwords  
 
-Source: Amazon Product Reviews dataset
+---
 
-Key column used: reviews.text
+## 😊 Sentiment Analysis
+- Tool used: **VADER Sentiment Analyzer**  
+- Metric: `compound` score  
+- Classification:
+  - **Positive:** score ≥ 0.05  
+  - **Negative:** score ≤ -0.05  
+  - **Neutral:** otherwise  
 
-Preprocessing included removal of missing values and text normalization
+---
 
-🧹 Text Preprocessing
+## 📊 Sentiment Distribution
 
-Lowercasing
+![Sentiment Distribution](images/sentiment_distribution.png)
 
-Removal of URLs, mentions, punctuation
+**Insight:**  
+- Most reviews are positive  
+- Neutral and negative reviews form a smaller proportion  
+- Indicates overall customer satisfaction  
 
-Tokenization using NLTK
+---
 
-Stopword removal
+## ☁️ Word Cloud Analysis
 
-😊 Sentiment Analysis
+### Positive Reviews
+![Positive Word Cloud](images/wordcloud_positive.png)
 
-Tool: VADER Sentiment Analyzer
+### Neutral Reviews
+![Neutral Word Cloud](images/wordcloud_neutral.png)
 
-Metric: compound score
+### Negative Reviews
+![Negative Word Cloud](images/wordcloud_negative.png)
 
-Classification rules:
+---
 
-Positive: score ≥ 0.05
+## 🔑 Keyword Frequency Analysis
 
-Negative: score ≤ -0.05
+### Top 20 Words – Positive Reviews
+![Top Positive Words](images/top_words_positive.png)
 
-Neutral: otherwise
+### Top 20 Words – Neutral Reviews
+![Top Neutral Words](images/top_words_neutral.png)
 
-📈 Exploratory Data Analysis
-Sentiment Distribution
+### Top 20 Words – Negative Reviews
+![Top Negative Words](images/top_words_negative.png)
 
-Insight:
+---
 
-Majority of reviews are positive
+## 📌 Business Insights
 
-Smaller proportion of neutral and negative reviews
+### 🟥 Negative Reviews
+- Device issues: *screen*, *button*, *remote*  
+- Specific products: *Kindle*, *Fire*, *HDX*  
+- Price comparisons (*iPad*)  
 
-Indicates generally high customer satisfaction
+**Action:** Improve usability and reconsider pricing/features
 
-☁️ Word Cloud Analysis
-Positive Reviews
+### 🟦 Neutral Reviews
+- Mostly factual language, minor issues  
 
-Neutral Reviews
+**Action:** Reduce small friction points
 
-Negative Reviews
+### 🟩 Positive Reviews
+- Ease of use and features highlighted (*amazon*, *love*, *alexa*)  
 
-📌 Business Insights from Word Clouds
-🟥 Negative Reviews
+**Action:** Leverage strengths in marketing/retention
 
-Frequent mentions of device issues (screen, button, remote)
+---
 
-References to specific products (kindle, fire, hdx)
+## 🛠 Tools & Libraries
+Python, Pandas, NumPy, NLTK, VADER Sentiment, Matplotlib, Seaborn, WordCloud  
 
-Price and competitor comparisons (ipad)
+---
 
-➡ Action: Improve hardware usability and value positioning
+## 🚀 Conclusion
+NLP techniques can transform unstructured reviews into **business insights**, identifying drivers of satisfaction and dissatisfaction.
 
-🟦 Neutral Reviews
+---
 
-Factual, experience-based language
 
-Minor usability concerns without strong emotion
-
-➡ Action: Address small friction points to convert neutral users
-
-🟩 Positive Reviews
-
-Strong emphasis on usability and features
-
-High brand trust (amazon, alexa, easy, love)
-
-➡ Action: Highlight these strengths in marketing campaigns
-
-📊 Top Keywords by Sentiment
-
-Bar charts were used to identify the top 20 most frequent words in each sentiment class.
-
-
-
-
-
-
-🛠 Tools & Libraries
-
-Python
-
-Pandas, NumPy
-
-NLTK
-
-VADER Sentiment
-
-Matplotlib, Seaborn
-
-WordCloud
-
-🚀 Conclusion
-
-This project demonstrates how NLP and sentiment analysis can convert unstructured customer feedback into business-ready insights.
-The results can support product improvements, customer retention strategies, and marketing decisions.
-
-🔮 Future Improvements
-
-Topic modeling using LDA
-
-Sentiment prediction using ML classifiers
-
-Aspect-based sentiment analysis
-
-Dashboard deployment using Streamlit
